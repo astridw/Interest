@@ -1,2 +1,8 @@
 <h1>Pins#create</h1>
 <p>Find me in app/views/pins/create.html.erb</p>
+<p><%= link_to "Home", root_path %></p>
+
+<%= simple_form_for @pin Do |f| %>
+<%= f.input :notes %>
+<%= f. input :photo %>
+<%= f.submit %>
