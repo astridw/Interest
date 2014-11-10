@@ -1,19 +1,13 @@
 class PinsController < ApplicationController
   def index
     @pins = Pin.all
+    @pin = Pin.new
   end
 
   def create
-    @pin = Pin.new(params.require(:user).permit(:notes, :photo))
-    if @pin.save
-      redirect_to root_path
-    else
-      render :new
-    end
+    @pin = Pin.new(params.require(:notes).permit(:photo))
+    @pin.save
+    @pins = Pin.all
+    @pin = Pin.new
   end
-
-  def new
-    @pin - Pin.new
-  end
-
 end
