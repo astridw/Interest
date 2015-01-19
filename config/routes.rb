@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
   root 'pins#index'
 
-  get 'pins/create'
+  resources :pins
+  # get 'pins/new' => "pins#new", as: :new_pin
+  post '/pins' => "pins#create", as: :pins
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
